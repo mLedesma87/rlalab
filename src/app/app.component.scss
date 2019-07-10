@@ -1,0 +1,40 @@
+
+.nav-item:hover {
+	margin:2px;
+}
+
+.footer-bg {
+  display:table;
+  width:100%;
+  background-color: #212121;
+}
+
+.footer-content {
+	color: #fff;
+	margin: 0 auto;
+	width: 60%;
+	text-align: center;
+}
+
+.footer-content h1 {
+	color: #fff;
+	font-size: calc(1em + 2vw);
+}
+
+.footer-content a:link{
+	color: #fff;
+	text-decoration: none;
+}
+
+.footer-content a:visited{
+	color: #fff;
+	text-decoration: none;
+}
+
+.footer-content p{
+	width: 100%;
+}
+
+.footer-content p i{
+	margin-right: 10px;
+}

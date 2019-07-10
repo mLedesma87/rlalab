@@ -1,0 +1,19 @@
+.research-container {
+	padding: 5%;
+}
+
+.researchInfo {
+	padding: 20px;
+	margin: 15px 0;
+}
+
+.researchInfo .row{
+	align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+	.research-container {
+	  padding: 15% 5%;
+    }
+
+}

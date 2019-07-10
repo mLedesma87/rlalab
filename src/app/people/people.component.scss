@@ -1,0 +1,14 @@
+.people-container {
+	padding: 5%;
+	margin-top: 15px;
+}
+
+.past-members-table {
+	margin-top: 50px;
+}
+
+@media screen and (max-width: 600px) {
+	.people-container {
+	  padding: 15% 5%;
+    }
+}
