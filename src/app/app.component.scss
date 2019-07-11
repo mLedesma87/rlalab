@@ -1,11 +1,16 @@
+i {
+	margin-right: 10px;
+}
+
 .nav-item:hover {
 	margin:2px;
 }
 
 .footer-bg {
-  display:table;
   width:100%;
   background-color: #212121;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer-content {

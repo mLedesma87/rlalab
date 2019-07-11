@@ -12,6 +12,12 @@
         <a class="nav-link" routerLink="/people" routerLinkActive="active">People <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active waves-light" mdbWavesEffect>
+        <a class="nav-link" routerLink="/publications" routerLinkActive="active">Publications <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active waves-light" mdbWavesEffect>
+        <a class="nav-link" routerLink="/socials" routerLinkActive="active">Socials <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active waves-light" mdbWavesEffect>
         <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact <span class="sr-only">(current)</span></a>
       </li>
     </ul>
@@ -20,11 +26,30 @@
 
 <router-outlet></router-outlet>
 
-<div class="footer-bg">
-  <div class="footer-content">
-     <p><i class="far fa-envelope"></i><a href="mailto:r.ledesma-amaro@imperial.ac.uk">RLAlab</a></p>
-     <p><i class="fab fa-researchgate"></i><a href="https://www.researchgate.net/profile/Rodrigo_Ledesma-Amaro">Rodrigo Ledesma Amaro</a></p>
-     <p><i class="fas fa-home"></i><a href="http://maps.google.com/?q=Royal+School+of+Mines+London">Imperial College London, Royal School of Mines, South Kensington Campus, London SW7 2AZ</a></p>
-     <p><i class="fas fa-phone"></i><a href="tel:+44 (0)20 7589 5111">+44 (0)20 7589 5111</a></p>
+<!-- Footer -->
+<footer class="page-footer font-small elegant-color pt-4">
+  <div class="container-fluid text-center text-md-left">
+    <div class="row justify-content-center">
+      <div class="col-6 text-center">
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!"><i class="far fa-envelope"></i><a href="mailto:r.ledesma-amaro@imperial.ac.uk">RLAlab</a></a>
+          </li>
+          <li>
+            <a href="#!"><i class="fab fa-researchgate"></i><a href="https://www.researchgate.net/profile/Rodrigo_Ledesma-Amaro">Rodrigo Ledesma Amaro</a></a>
+          </li>
+          <li>
+            <a href="#!"><i class="fas fa-home"></i><a href="http://maps.google.com/?q=Royal+School+of+Mines+London">Imperial College London, Royal School of Mines, South Kensington Campus, London SW7 2AZ</a></a>
+          </li>
+          <li>
+            <a href="#!"><i class="fas fa-phone"></i><a href="tel:+44 (0)20 7589 5111">+44 (0)20 7589 5111</a></a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="footer-copyright text-center py-3">
+    <a href="https://mdbootstrap.com/education/angular/"></a>
+  </div>
+</footer>
+  <!-- Footer -->

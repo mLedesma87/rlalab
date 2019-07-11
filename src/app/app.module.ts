@@ -7,9 +7,13 @@ import { AppComponent } from './app.component';
 import { RlalabComponent } from './rlalab/rlalab.component';
 import { PeopleComponent } from './people/people.component';
 import { ResearchComponent } from './research/research.component';
+import { ContactComponent } from './contact/contact.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { ContactComponent } from './contact/contact.component';
+import { AgmCoreModule } from '@agm/core';
+import { SocialsComponent } from './socials/socials.component';
+import { PublicationsComponent } from './publications/publications.component'
+
 
 @NgModule({
   declarations: [
@@ -17,13 +21,18 @@ import { ContactComponent } from './contact/contact.component';
     RlalabComponent,
     PeopleComponent,
     ResearchComponent,
-    ContactComponent
+    ContactComponent,
+    SocialsComponent,
+    PublicationsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyChB9tyiPclEYKwwLh7WVPDjeEbLrqVOU0'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
