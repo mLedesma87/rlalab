@@ -9,7 +9,7 @@ import { PublicationsService, Publication } from '../publications.service';
 
 export class PublicationsComponent implements OnInit {
   
-  private publications:Publication[] = [];
+  publications:Publication[] = [];
 
   constructor( private publicationsService : PublicationsService ) { }
 
