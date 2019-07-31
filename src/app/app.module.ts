@@ -12,7 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgmCoreModule } from '@agm/core';
 import { SocialsComponent } from './socials/socials.component';
-import { PublicationsComponent } from './publications/publications.component'
+import { PublicationsComponent } from './publications/publications.component';
 
 
 @NgModule({

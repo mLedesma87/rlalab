@@ -6,6 +6,78 @@ const HTMLParser = require('node-html-parser');
 const fs = require('fs');
 
 const app = express();
+const arrPublications = [];
+
+fs.readFile('./response.txt','utf-8', (err, data) => {
+	
+	const root = HTMLParser.parse(data);
+	const publications = root.querySelectorAll('.gsc_a_tr');
+	
+	for (let publication of publications) {
+		let pubObj = {};
+		pubObj.urlDetail = publication.childNodes[0].childNodes[0].attributes['data-href'];
+		pubObj.pubTitle = publication.childNodes[0].childNodes[0].text;
+		pubObj.citationsUrl = publication.childNodes[1].childNodes[0].attributes['href'];
+		pubObj.citations = publication.childNodes[1].childNodes[0].text;
+		pubObj.year = publication.childNodes[2].text;
+		arrPublications.push(pubObj);
+	}
+
+	arrPublications.sort((a,b) => b.citations - a.citations);
+
+	fs.writeFile('./src/assets/publications.json', JSON.stringify(arrPublications), 'utf-8', function(err){
+		if (err) console.log(err);
+		console.log('file created');
+	});
+});
+
+
+//async function getPublicationsJson() {
+//	const arrPublications = [];
+//	let response;
+//	try {
+//		response = await fs.readFile('/response.txt');
+//	} catch (err) {
+//		console.log(err);
+//	}
+//	
+//	console.log(response);
+//	const root = HTMLParser.parse(response);
+//	const publications = root.querySelectorAll('.gsc_a_tr');
+//
+//	for (let publication of publications) {
+//		let pubObj = {};
+//		pubObj.urlDetail = publication.childNodes[0].childNodes[0].attributes['data-href'];
+//		pubObj.pubTitle = publication.childNodes[0].childNodes[0].text;
+//		pubObj.citationsUrl = publication.childNodes[1].childNodes[0].attributes['href'];
+//		pubObj.year = publication.childNodes[2].text;
+//		arrPublications.push(pubObj);
+//		//request('https://scholar.google.com/' + pubObj.urlDetail, function(err2, res2, body2){
+//		//	const root2 = HTMLParser.parser(body2);
+////
+//		//	pubObj.pubExternalURL = root2.querySelector('.gsc_vcd_title_link')[0].attributes['href'];
+//		//	var arrDetailRow = root2.querySelector('gsc_vcd_value');
+//		//	pubObj.authors = arrDetailRow[0].text;
+//		//	pubObj.date = arrDetailRow[1].text;
+//		//	pubObj.description = arrDetailRow[6].text;
+//		//	pubObj.publisher = arrDetailRow[5].text;
+//		//	pubObj.volume = arrDetailRow[2].text;
+//		//	pubObj.issue = arrDetailRow[3].text;
+//		//	pubObj.pages = arrDetailRow[4].text;
+////
+//		//	pubObj.pubTitle = publication.childNodes[0].childNodes[0].text;
+//		//	pubObj.citationsUrl = publication.childNodes[1].childNodes[0].attributes['href'];
+//		//	pubObj.year = publication.childNodes[2].text;
+//		//	arrPublications.push(pubObj);
+//		//})
+//	}
+//
+//	fs.writeFile('publications.json', JSON.stringify(arrPublications), 'utf-8', function(err){
+//		if (err) console.log(err);
+//		console.log('file created');
+//	});
+//}
+
 
 //request('https://scholar.google.com/citations?user=kWTPnDIAAAAJ', function(err,res,body){
 //	const root = HTMLParser.parse(body);
@@ -49,6 +121,8 @@ app.get('/*', function(req,res) {
     
 res.sendFile(path.join(__dirname+'/dist/rlalab/index.html'));
 });
+
+//getPublicationsJson();
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);

@@ -1,3 +1,7 @@
 <div class="container publications-container">
-	
+  <ul *ngFor="let publication of publications"> 
+    <li>
+    	<h2>{{ publication.pubTitle }}</h2>
+    </li>
+  </ul>
 </div>
