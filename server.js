@@ -25,7 +25,7 @@ fs.readFile('./response.txt','utf-8', (err, data) => {
 
 	arrPublications.sort((a,b) => b.citations - a.citations);
 
-	fs.writeFile('./src/assets/publications.json', JSON.stringify(arrPublications), 'utf-8', function(err){
+	fs.writeFile( __dirname + '/src/assets/publications.json', JSON.stringify(arrPublications), 'utf-8', function(err){
 		if (err) console.log(err);
 		console.log('file created');
 	});
