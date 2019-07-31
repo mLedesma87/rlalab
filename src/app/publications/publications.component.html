@@ -1,7 +1,16 @@
 <div class="container publications-container">
-  <ul *ngFor="let publication of publications"> 
-    <li>
-    	<h2>{{ publication.pubTitle }}</h2>
-    </li>
-  </ul>
+  <div class="row">
+  	<div class="col">
+	  <div *ngFor="let publication of publications"> 
+   	    <mdb-card>
+		  <mdb-card-body>
+		    <mdb-card-title>
+		      <h4><a href="https://scholar.google.com{{publication.urlDetail}}">{{publication.pubTitle}}</a></h4>
+		    </mdb-card-title>
+		   <a class="card-link">Cited by {{publication.citations}}</a>
+		   <a class="card-link">{{publication.year}}</a>
+		  </mdb-card-body>
+		</mdb-card>
+  	 </div> 
+  	</div>	
 </div>

@@ -1,6 +1,10 @@
 .publications-container {
 	padding: 5%;
 	margin-top: 15px;
+
+	mdb-card {
+		margin:15px 0;
+	}
 }
 
 @media screen and (max-width: 600px) {
