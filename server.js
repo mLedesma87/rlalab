@@ -17,6 +17,7 @@ request('https://scholar.google.com/citations?user=kWTPnDIAAAAJ&pagesize=100', f
 		let pubObj = {};
 		pubObj.urlDetail = publication.childNodes[0].childNodes[0].attributes['data-href'];
 		pubObj.pubTitle = publication.childNodes[0].childNodes[0].text;
+		pubObj.authors = publication.childNodes[0].childNodes[1].text;
 		pubObj.citationsUrl = publication.childNodes[1].childNodes[0].attributes['href'];
 		pubObj.citations = publication.childNodes[1].childNodes[0].text;
 		pubObj.year = publication.childNodes[2].text;
