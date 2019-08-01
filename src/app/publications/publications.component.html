@@ -8,8 +8,8 @@
 		      <h4><a href="https://scholar.google.com{{publication.urlDetail}}">{{publication.pubTitle}}</a></h4>
 		    </mdb-card-title>
 		   <h6>{{publication.authors}}</h6>
-		   <a class="card-link">Cited by {{publication.citations}}</a>
-		   <a class="card-link">{{publication.year}}</a>
+		   <span *ngIf="publication.citations > 0">Cited by <a class="card-link" href="{{publication.citationsUrl}}">{{publication.citations}}</a> | </span>
+		   <span>{{publication.year}}</span>
 		  </mdb-card-body>
 		</mdb-card>
   	 </div> 
