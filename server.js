@@ -8,9 +8,9 @@ const fs = require('fs');
 const app = express();
 const arrPublications = [];
 
-fs.readFile('./response.txt','utf-8', (err, data) => {
+request('https://scholar.google.com/citations?user=kWTPnDIAAAAJ&pagesize=100', function(err,res,body){
 	
-	const root = HTMLParser.parse(data);
+	const root = HTMLParser.parse(body);
 	const publications = root.querySelectorAll('.gsc_a_tr');
 	
 	for (let publication of publications) {
@@ -23,7 +23,7 @@ fs.readFile('./response.txt','utf-8', (err, data) => {
 		arrPublications.push(pubObj);
 	}
 
-	arrPublications.sort((a,b) => b.citations - a.citations);
+	arrPublications.sort((a,b) => b.year - a.year);
 
 	fs.writeFile( __dirname + '/src/assets/publications.json', JSON.stringify(arrPublications), 'utf-8', function(err){
 		if (err) console.log(err);
@@ -79,7 +79,7 @@ fs.readFile('./response.txt','utf-8', (err, data) => {
 //}
 
 
-//request('https://scholar.google.com/citations?user=kWTPnDIAAAAJ', function(err,res,body){
+//request('https://scholar.google.com/citations?user=kWTPnDIAAAAJ&pagesize=100', function(err,res,body){
 //	const root = HTMLParser.parse(body);
 //	const publications = root.querySelectorAll('.gsc_a_tr');
 //	const arrPublications = [];
