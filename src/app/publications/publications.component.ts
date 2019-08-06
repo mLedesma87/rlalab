@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PublicationsService, Publication } from '../publications.service';
+import { PublicationsService } from '../publications.service';
 
 @Component({
   selector: 'app-publications',
@@ -9,13 +9,13 @@ import { PublicationsService, Publication } from '../publications.service';
 
 export class PublicationsComponent implements OnInit {
   
-  publications:Publication[] = [];
+  publications = [];
 
   constructor( private publicationsService : PublicationsService ) { }
 
   ngOnInit() {
   	this.publicationsService.getPublicationsJSON().subscribe(data => {
-  		this.publications = data;
+  		this.publications = data.response.results;
   	})
   }
 

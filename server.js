@@ -8,29 +8,40 @@ const fs = require('fs');
 const app = express();
 const arrPublications = [];
 
-request('https://scholar.google.com/citations?user=kWTPnDIAAAAJ&pagesize=100', function(err,res,body){
-	
-	const root = HTMLParser.parse(body);
-	const publications = root.querySelectorAll('.gsc_a_tr');
-	
-	for (let publication of publications) {
-		let pubObj = {};
-		pubObj.urlDetail = publication.childNodes[0].childNodes[0].attributes['data-href'];
-		pubObj.pubTitle = publication.childNodes[0].childNodes[0].text;
-		pubObj.authors = publication.childNodes[0].childNodes[1].text;
-		pubObj.citationsUrl = publication.childNodes[1].childNodes[0].attributes['href'];
-		pubObj.citations = publication.childNodes[1].childNodes[0].text;
-		pubObj.year = publication.childNodes[2].text;
-		arrPublications.push(pubObj);
-	}
 
-	arrPublications.sort((a,b) => b.year - a.year);
+request('http://www.imperial.ac.uk/respub/search.jsonp?respub-action=search.html&id=00959440&limit=300&minyear=2013&maxyear=2019&page=1&person=true', function(err,res,body){
+	body = body.replace('(', '');
+	body = body.replace(');', '');
 
-	fs.writeFile( __dirname + '/src/assets/publications.json', JSON.stringify(arrPublications), 'utf-8', function(err){
+	fs.writeFile( __dirname + '/src/assets/publications.json', body, 'utf-8', function(err){
 		if (err) console.log(err);
 		console.log('file created');
 	});
 });
+
+//request('https://scholar.google.com/citations?user=kWTPnDIAAAAJ&pagesize=100', function(err,res,body){
+//	
+//	const root = HTMLParser.parse(body);
+//	const publications = root.querySelectorAll('.gsc_a_tr');
+//	
+//	for (let publication of publications) {
+//		let pubObj = {};
+//		pubObj.urlDetail = publication.childNodes[0].childNodes[0].attributes['data-href'];
+//		pubObj.pubTitle = publication.childNodes[0].childNodes[0].text;
+//		pubObj.authors = publication.childNodes[0].childNodes[1].text;
+//		pubObj.citationsUrl = publication.childNodes[1].childNodes[0].attributes['href'];
+//		pubObj.citations = publication.childNodes[1].childNodes[0].text;
+//		pubObj.year = publication.childNodes[2].text;
+//		arrPublications.push(pubObj);
+//	}
+//
+//	arrPublications.sort((a,b) => b.year - a.year);
+//
+//	fs.writeFile( __dirname + '/src/assets/publications.json', JSON.stringify(arrPublications), 'utf-8', function(err){
+//		if (err) console.log(err);
+//		console.log('file created');
+//	});
+//});
 
 
 //async function getPublicationsJson() {

@@ -5,11 +5,11 @@
    	    <mdb-card>
 		  <mdb-card-body>
 		    <mdb-card-title>
-		      <h4><a href="https://scholar.google.com{{publication.urlDetail}}">{{publication.pubTitle}}</a></h4>
+		      <h4><a href="{{publication.doiUrl}}">{{publication.title}}</a></h4>
 		    </mdb-card-title>
-		   <h6>{{publication.authors}}</h6>
-		   <span *ngIf="publication.citations > 0">Cited by <a class="card-link" href="{{publication.citationsUrl}}">{{publication.citations}}</a> | </span>
-		   <span>{{publication.year}}</span>
+		   <h5>{{publication.authors}},{{publication.extraAuthors}}</h5>
+		   <h6><b>{{publication.journalText}}</b></h6>
+		   <span>{{publication.publicationDate}}</span>
 		  </mdb-card-body>
 		</mdb-card>
   	 </div> 
