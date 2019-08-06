@@ -15,7 +15,7 @@ export class PublicationsComponent implements OnInit {
 
   ngOnInit() {
   	this.publicationsService.getPublicationsJSON().subscribe(data => {
-  		this.publications = data.response.results;
+  		this.publications = data['response']['results'];
   	})
   }
 
