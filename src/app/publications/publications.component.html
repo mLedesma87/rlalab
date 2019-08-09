@@ -5,11 +5,10 @@
    	    <mdb-card>
 		  <mdb-card-body>
 		    <mdb-card-title>
-		      <h4><a href="{{publication.doiUrl}}">{{publication.title}}</a></h4>
+		      <h5><a href="{{publication.doiUrl}}">{{publication.title}}</a></h5>
 		    </mdb-card-title>
-		   <h5>{{publication.authors}},{{publication.extraAuthors}}</h5>
-		   <h6><b>{{publication.journalText}}</b></h6>
-		   <span>{{publication.publicationDate}}</span>
+		   <h6>{{publication.authors}},{{publication.extraAuthors}}</h6>
+		   <span><b>{{publication.journalText}}</b> | {{publication.publicationDate}} </span>
 		  </mdb-card-body>
 		</mdb-card>
   	 </div> 
