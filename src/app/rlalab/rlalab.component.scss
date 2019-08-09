@@ -5,6 +5,12 @@
   background-color: rgba(0,0,0,0.5);
   background-size: cover;
   overflow: hidden;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  @media (max-width: 667px) {
+       background-attachment: scroll;
+   }
 }
 
 .main-title {
