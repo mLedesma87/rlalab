@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
   
-  public map: any = { lat: 51.4997627, lng: -0.1778798 };
+  public map: any = { lat: 51.4997693, lng: -0.1756972 };
   
   constructor() { }
 
