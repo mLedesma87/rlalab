@@ -10,13 +10,14 @@ const arrPublications = [];
 
 
 request('http://www.imperial.ac.uk/respub/search.jsonp?respub-action=search.html&id=00959440&limit=300&minyear=2013&maxyear=2019&page=1&person=true', function(err,res,body){
-	body = body.replace('(', '');
-	body = body.replace(');', '');
-
-	fs.writeFile( __dirname + '/src/assets/publications.json', body, 'utf-8', function(err){
-		if (err) console.log(err);
-		console.log('file created');
-	});
+	if (body) {
+		body = body.replace('(', '');
+		body = body.replace(');', '');
+		fs.writeFile( __dirname + '/src/assets/publications.json', body, 'utf-8', function(err){
+			if (err) console.log(err);
+			console.log('file created');
+		});
+	}
 });
 
 //request('https://scholar.google.com/citations?user=kWTPnDIAAAAJ&pagesize=100', function(err,res,body){
